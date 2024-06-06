@@ -21,7 +21,7 @@
 
 (def ^:private app-defaults
   "Global application defaults"
-  {:bb-run-mode                     "prod"
+  {:bb-run-mode                     "dev"
    ;; DB Settings
    :bb-db-type                      "h2"
    :bb-db-file                      "beesbuddy.db"

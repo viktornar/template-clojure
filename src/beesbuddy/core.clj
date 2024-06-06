@@ -16,7 +16,6 @@
   ;;  [beesbuddy.models.setting :as settings]
   ;;  [beesbuddy.plugins :as plugins]
    [beesbuddy.plugins.classloader :as classloader]
-   [beesbuddy.public-settings :as public-settings]
   ;;  [beesbuddy.sample-data :as sample-data]
    [beesbuddy.server :as server]
    [beesbuddy.server.handler :as handler]

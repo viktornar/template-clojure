@@ -195,7 +195,6 @@
   ;;
   ;;    clojure -M:dev (basic dev REPL that includes test namespaces)
   ;;    clojure -M:dev:run (run dev server)
-  ;;    clojure -M:dev:watch (run dev server and watcvh changes)
   ;;
   ;; You can start a web server from this REPL with
   ;;
@@ -231,9 +230,12 @@
                                   :exclusions  [org.clojure/clojure
                                                 org.clojure/clojurescript]} ; lets you write test fixtures that are clear, concise, and easy to maintain (clojure.spec)
     ring/ring-mock               {:mvn/version "0.4.0"}                     ; creating Ring request maps for testing purposes
-    talltale/talltale            {:mvn/version "0.5.14"}}                   ; generates fake data, useful for prototyping or load testing
+    talltale/talltale            {:mvn/version "0.5.14"}
+     com.nextjournal/beholder     {:mvn/version "1.0.2"} ;; watcher
+     io.github.tonsky/clj-reload {:mvn/version "0.7.0"}
+    }                   ; generates fake data, useful for prototyping or load testing
 
-   :extra-paths ["dev/src" "local/src" "test" "test_resources"]
+   :extra-paths ["dev/src" "dev/src/watch" "local/src" "test" "test_resources"]
    :jvm-opts    ["-Dmb.run.mode=dev"
                  "-Dmb.field.filter.operators.enabled=true"
                  "-Dmb.test.env.setting=ABCDEFG"
@@ -275,4 +277,5 @@
           {com.nextjournal/beholder     {:mvn/version "1.0.2"} ;; watcher
            io.github.tonsky/clj-reload {:mvn/version "0.7.0"}} ;; reloader
           :extra-paths "dev/src/watch"
-          :main-opts ["-m" "watch.watcher"]}}}
+          :main-opts ["-m" "watch.watcher"]
+          :jvm-opts  ["-Dbb.run.mode=dev"]}}}
